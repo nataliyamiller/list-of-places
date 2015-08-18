@@ -17,5 +17,23 @@ public class App {
     return new ModelAndView(model, layout);
   }, new VelocityTemplateEngine());
 
+  post("/restaurants", (request, response) -> {
+    HashMap<String, Object> model = new HashMap<String, Object>();
+    ArrayList<Restaurants> restaurants = request.session().attribute("restaurants");
+
+    if(restaurants == null) {
+      restaurants = new ArrayList<Restaurants>();
+      request.session().attribute("restaurants", restaurants);
+    }
+
+    String description = request.queryParams("description");
+    Restaurants newRestaurants = new Restaurants(description);
+
+    restaurants.add(newRestaurants);
+
+    model.put("template", "templates/success.vtl");
+    return new ModelAndView(model, layout);
+  }, new VelocityTemplateEngine());
+
  }
 }

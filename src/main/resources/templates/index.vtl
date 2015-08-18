@@ -1,5 +1,9 @@
 <h1>Restaurants I've Been To:</h1>
-
+<ul>
+  #foreach ($restaurants in $restaurants)
+    <li>$restaurants.getDescription()</li>
+    #end
+</ul>
 
 <p>
   Add a new restaurant:
