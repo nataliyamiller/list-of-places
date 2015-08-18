@@ -1,7 +1,8 @@
 <h1>Restaurants I've Been To:</h1>
 <ul>
-  #foreach ($restaurants in $restaurants)
-    <li>$restaurants.getDescription()</li>
+<!-- restaurant can be anything, but then it has to match the restaurant.getDescription() method. -->
+    #foreach ($restaurant in $restaurants)
+    <li>$restaurant.getDescription()</li>
     #end
 </ul>
 
